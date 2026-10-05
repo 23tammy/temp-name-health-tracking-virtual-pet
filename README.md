@@ -170,43 +170,23 @@ Here are five that are a little more substantial while still being appropriate f
 **Query 1 — Retrieve a user's fitness plans and their exercises**
 
 ```text
-π plan_name, exercise_name
-(
-    σ user_id = 'USER_UUID'
-    (
-        FitnessPlans ⨝ FitnessPlans.plan_id = Workouts.plan_id Workouts
-    )
-)
+π plan_name, exercise_name(σ user_id = 'USER_UUID'(FitnessPlans ⨝ FitnessPlans.plan_id = Workouts.plan_id Workouts))
 ```
-
-Retrieves the names of a user's fitness plans along with the exercises contained in each plan.
 
 ---
 
 **Query 2 — Retrieve exercises with their sets, reps, and weight**
 
 ```text
-π exercise_name, set_number, reps, weight
-(
-    σ plan_id = 1
-    (
-        Workouts ⨝ Workouts.workout_id = WorkoutSets.workout_id WorkoutSets
-    )
-)
+π exercise_name, set_number, reps, weight(σ plan_id = 1(Workouts ⨝ Workouts.workout_id = WorkoutSets.workout_id WorkoutSets))
 ```
-
-Joins `Workouts` with `WorkoutSets` to retrieve the individual sets recorded for exercises in a specific fitness plan.
 
 ---
 
 **Query 3 — Retrieve a user's completed hobbies**
 
 ```text
-π log_date, mood, hobby
-(
-    σ user_id = 'USER_UUID' ∧ hobby_completed = TRUE
-    (HealthLogs)
-)
+π log_date, mood, hobby(σ user_id = 'USER_UUID' ∧ hobby_completed = TRUE(HealthLogs))
 ```
 
 
@@ -215,21 +195,13 @@ Joins `Workouts` with `WorkoutSets` to retrieve the individual sets recorded for
 **Query 4 — Retrieve a user's journal entries and saved quotes**
 
 ```text
-π entry_text, created_at
-(
-    σ user_id = 'USER_UUID'
-    (JournalEntries)
-)
+π entry_text, created_at(σ user_id = 'USER_UUID'(JournalEntries))
 ```
 
 and
 
 ```text
-π quote_text, author
-(
-    σ user_id = 'USER_UUID'
-    (SavedQuotes)
-)
+π quote_text, author(σ user_id = 'USER_UUID'(SavedQuotes))
 ```
 
 
@@ -238,15 +210,7 @@ and
 **Query 5 — Retrieve a user's fitness data across all related tables**
 
 ```text
-π plan_name, exercise_name, set_number, reps, weight
-(
-    σ user_id = 'USER_UUID'
-    (
-        FitnessPlans
-        ⨝ FitnessPlans.plan_id = Workouts.plan_id Workouts
-        ⨝ Workouts.workout_id = WorkoutSets.workout_id WorkoutSets
-    )
-)
+π plan_name, exercise_name, set_number, reps, weight(σ user_id = 'USER_UUID'(FitnessPlans ⨝ FitnessPlans.plan_id = Workouts.plan_id Workouts ⨝ Workouts.workout_id = WorkoutSets.workout_id WorkoutSets))
 ```
 
 
