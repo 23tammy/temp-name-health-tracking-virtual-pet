@@ -14,7 +14,11 @@ There will be no social networking or multiplayer functionality. Users will impr
 
 ### Mobile Platform Scope
 
-The project will be developed as a cross-platform mobile application for Android and iOS using React Native. The semester scope will focus on the core individual wellness tracking and virtual-pet experience.
+The project will be developed as a cross-platform mobile application for Android and iOS using:
+Frontend: React Native, Expo, TypeScript
+Backend: Supabase
+Database: PostgreSQL
+Authentication: Supabase Auth
 
 ### Features Within Scope
 
