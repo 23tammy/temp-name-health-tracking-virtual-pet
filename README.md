@@ -167,7 +167,7 @@ Here are five that are a little more substantial while still being appropriate f
 
 ### 3. Relational Algebra Queries
 
-**Query 1 — Retrieve a user's fitness plans and their exercises**
+**Retrieve a user's fitness plans and their exercises**
 
 ```text
 π plan_name, exercise_name(σ user_id = 'USER_UUID'(FitnessPlans ⨝ FitnessPlans.plan_id = Workouts.plan_id Workouts))
@@ -175,7 +175,7 @@ Here are five that are a little more substantial while still being appropriate f
 
 ---
 
-**Query 2 — Retrieve exercises with their sets, reps, and weight**
+**Retrieve exercises with their sets, reps, and weight**
 
 ```text
 π exercise_name, set_number, reps, weight(σ plan_id = 1(Workouts ⨝ Workouts.workout_id = WorkoutSets.workout_id WorkoutSets))
@@ -183,7 +183,7 @@ Here are five that are a little more substantial while still being appropriate f
 
 ---
 
-**Query 3 — Retrieve a user's completed hobbies**
+**Retrieve a user's completed hobbies**
 
 ```text
 π log_date, mood, hobby(σ user_id = 'USER_UUID' ∧ hobby_completed = TRUE(HealthLogs))
@@ -192,7 +192,7 @@ Here are five that are a little more substantial while still being appropriate f
 
 ---
 
-**Query 4 — Retrieve a user's journal entries and saved quotes**
+**Retrieve a user's journal entries and saved quotes**
 
 ```text
 π entry_text, created_at(σ user_id = 'USER_UUID'(JournalEntries))
@@ -207,7 +207,7 @@ and
 
 ---
 
-**Query 5 — Retrieve a user's fitness data across all related tables**
+**Retrieve a user's fitness data across all related tables**
 
 ```text
 π plan_name, exercise_name, set_number, reps, weight(σ user_id = 'USER_UUID'(FitnessPlans ⨝ FitnessPlans.plan_id = Workouts.plan_id Workouts ⨝ Workouts.workout_id = WorkoutSets.workout_id WorkoutSets))
