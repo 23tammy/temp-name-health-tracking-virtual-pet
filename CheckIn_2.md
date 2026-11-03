@@ -42,7 +42,8 @@ If one occurrence was missed, the database could contain inconsistent informatio
 The functional dependencies: 
 (program_id, day) determines split_type. A program's workout day determines its split type, and not the exercise. This is a partial dependency. 
 exercise determines muscle_group. Only exercise determines its primary muscle group, so this is a partial dependency. 
-(program_id, day, exercise) determines equipment	The scheduled exercise determines the selected equipment within that program day.
+(program_id, day, exercise) determines equipment	The scheduled exercise determines the selected equipment within that program day. The equipment cannot soley depend on the exercise because exercises may have alternatives using different equipment,
+
 Finally, program_name is only dependant on program_id. 
 
 PROGRAMS decomposed into 2NF, which also satisfies 3NF:
