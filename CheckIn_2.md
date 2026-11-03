@@ -111,11 +111,11 @@ Progression already satisfies 2NF. Although there could be a potential transitiv
 
 ### PROGRESSION
 
-| log_id (PK) | program_id | day | exercise_id (FK) | date | sets | reps | weight_lbs |
-|---|---|---|---|---|---|---|---|
-| 1 | 1 | monday | 1 | 2026-10-01 | 3 | 8 | 45 |
-| 2 | 1 | monday | 2 | 2026-10-01 | 3 | 8 | 45 |
-| 3 | 1 | tuesday | 3 | 2026-10-01 | 3 | 8 | 45 |
+| log_id (PK) |	program_id (FK)	| exercise_id (FK) |	date |	sets |	reps |	weight_lbs |
+|---|---|---|---|---|---|---|
+| 1 |	1 |	1 |	2026-10-01 |	3 |	8	| 45 |
+| 2 |	1 |	2 |	2026-10-01 |	3 |	8	| 45 |
+| 3 | 1 |	3 |	2026-10-01 |	3 |	8	| 45 |
 
 ### JOURNAL
 
